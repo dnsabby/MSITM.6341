@@ -1,64 +1,150 @@
 """
-Lesson 3 In-Class Exercises: Expanding on Classes, Objects, and Modules
-=========================================================================
-These exercises will help you practice and expand your understanding of 
-Object-Oriented Programming (OOP) concepts and modular programming in Python.
+Lesson 3 In-Class Exercises (No Answers)
+========================================
+
+This file is scaffold-only.
+Implement each class/function during practice.
 """
 
-# Exercise 1: Creating a Class with Methods
-# ------------------------------------------
-# Define a `Book` class with attributes: title, author, and year.
-# Implement a method `book_info` that returns the book details as a string.
-# Create multiple instances and print their information.
+import os
 
-# TODO: Define the Book class and implement the required method
+import math_operations
+from geometry import circle, rectangle
 
-
-# Exercise 2: Class Inheritance
-# ------------------------------
-# Define a `Person` class with attributes: name and age.
-# Create a `Student` subclass that inherits from `Person` and adds a student_id attribute.
-# Override a method `get_info` to include student_id.
-
-# TODO: Define the Person class and the Student subclass
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Exercise 3: Encapsulation and Data Protection
-# ---------------------------------------------
-# Define a `BankAccount` class with private attributes: `__balance`.
-# Implement deposit and withdraw methods with checks to prevent negative balance.
-# Provide a method `get_balance` to safely retrieve the balance.
-
-# TODO: Define the BankAccount class with encapsulation
+# ========================
+# Exercise 1: Classes and Objects
+# ========================
 
 
+class Book:
+    """Represent one book with core metadata."""
+
+    def __init__(self, title, author, year):
+        # TODO: Store constructor inputs as instance attributes.
+        pass
+
+    def book_info(self):
+        """
+        Return one formatted summary string for the book.
+        """
+        # TODO: Return formatted book description.
+        pass
+
+
+# ========================
+# Exercise 2: Inheritance
+# ========================
+
+
+class Person:
+    """Base class for person data."""
+
+    def __init__(self, name, age):
+        # TODO: Initialize name and age.
+        pass
+
+    def get_info(self):
+        """Return base info text."""
+        # TODO: Return person info string.
+        pass
+
+
+class Student(Person):
+    """Subclass that adds student-specific data."""
+
+    def __init__(self, name, age, student_id):
+        # TODO: Call parent initializer and store student_id.
+        pass
+
+    def get_info(self):
+        """Return combined info including student ID."""
+        # TODO: Override and extend parent info.
+        pass
+
+
+# ========================
+# Exercise 3: Encapsulation
+# ========================
+
+
+class BankAccount:
+    """Practice private attributes and controlled updates."""
+
+    def __init__(self, owner, balance):
+        # TODO: Store owner and create private balance.
+        pass
+
+    def deposit(self, amount):
+        # TODO: Add validation and update balance.
+        pass
+
+    def withdraw(self, amount):
+        # TODO: Add validation and update balance.
+        pass
+
+    def get_balance(self):
+        # TODO: Return current balance.
+        pass
+
+
+# ========================
 # Exercise 4: Working with Modules
-# ----------------------------------
-# Create a module named `math_operations.py` containing functions `add(a, b)`, `subtract(a, b)`, `multiply(a, b)`, `divide(a, b)`.
-# Import the module in another script and use its functions.
+# ========================
 
-# TODO: Create the math_operations module and use its functions
+# TODO: Call add, subtract, multiply, and divide functions
+# from `math_operations.py`.
+_ = math_operations
 
 
+# ========================
 # Exercise 5: Using Packages
-# ---------------------------
-# Create a package `geometry` with two modules `circle.py` and `rectangle.py`.
-# `circle.py` should contain functions to calculate area and circumference.
-# `rectangle.py` should contain functions to calculate area and perimeter.
-# Import these modules and use them in another script.
+# ========================
 
-# TODO: Define the package structure and implement the required modules
+# TODO: Call area/circumference helpers from `geometry/circle.py`.
+# TODO: Call area helper from `geometry/rectangle.py`.
+_ = circle, rectangle
 
 
-# Exercise 6: Polymorphism in Action
-# -----------------------------------
-# Create a base class `Shape` with a method `area()` that returns 0.
-# Create two subclasses `Circle` and `Rectangle` that override `area()`.
-# Demonstrate polymorphism by calling `area()` on different shape objects.
-
-# TODO: Define the Shape class and its subclasses implementing polymorphism
+# ========================
+# Exercise 6: Polymorphism
+# ========================
 
 
-"""
-End of Exercises
-"""
+class Shape:
+    """Base class for polymorphism exercise."""
+
+    def area(self):
+        # TODO: Return default area value.
+        pass
+
+
+class CircleShape(Shape):
+    """Circle subclass."""
+
+    def __init__(self, radius):
+        # TODO: Store radius.
+        pass
+
+    def area(self):
+        # TODO: Return circle area.
+        pass
+
+
+class RectangleShape(Shape):
+    """Rectangle subclass."""
+
+    def __init__(self, width, height):
+        # TODO: Store width and height.
+        pass
+
+    def area(self):
+        # TODO: Return rectangle area.
+        pass
+
+
+if __name__ == "__main__":
+    # TODO: Instantiate each class and print practice results.
+    pass

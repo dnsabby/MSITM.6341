@@ -1,4 +1,10 @@
-# Lesson 7: From Data Analysis to Machine Learning with Python
+"""
+Lesson 7 Examples: From Data Analysis to Machine Learning
+=========================================================
+
+Synchronization note:
+- This file pairs with `Lesson07/Exercises/exercises.py`.
+"""
 
 # --- 1. Recap of Python for Data Science ---
 import numpy as np

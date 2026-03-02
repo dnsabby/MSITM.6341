@@ -1,153 +1,150 @@
-# Python Cheatsheet: Basic Syntax, Variables, Data Types, Operators, Control Structures, and Functions
+"""
+Lesson 1 Examples: Python Basics
+================================
+
+This file is synchronized with `Lesson01/Exercises/exercises.py`.
+Section order in both files:
+1) Variables and input-ready values
+2) Core data types
+3) Operators
+4) Control flow
+5) Functions
+"""
 
 # ========================
-# 1. Basic Syntax and Variables
+# Section 1: Variables
 # ========================
 
-# Example 1: Defining Variables
-name = "Alice"
-age = 30
-is_student = True
-print(f"My name is {name}, I am {age} years old, and student status: {is_student}.")
+# Example 1: Defining variables
+student_name = "Alice"
+student_age = 30
+is_enrolled = True
+print(
+    f"My name is {student_name}, I am {student_age} years old, "
+    f"and enrolled status is {is_enrolled}."
+)
 
-# Example 2: User Input
-name = input("Enter your name: ")
-print(f"Hello, {name}!")
+# Example 2: Updating variable values
+student_age = student_age + 1
+print(f"Next year, {student_name} will be {student_age}.")
 
-# Example 3: Multiple Variable Assignment
-x, y = 5, 10
-print(f"x: {x}, y: {y}")
-
-# ========================
-# 2. Data Types
-# ========================
-
-# Example 1: Common Data Types
-int_var = 123        # Integer
-decimal_var = 3.14   # Float
-string_var = "Python" # String
-bool_var = False     # Boolean
-
-# Example 2: Advanced Data Types
-list_var = [1, 2, 3]                  # List
-dict_var = {"key": "value"}         # Dictionary
-tuple_var = (4, 5, 6)                # Tuple
-set_var = {"apple", "banana", "cherry"} # Set
-
-# Example 3: Checking Data Types
-print(type(int_var))  # <class 'int'>
-print(type(list_var)) # <class 'list'>
+# Example 3: Multiple assignment
+x_value, y_value = 5, 10
+print(f"x_value: {x_value}, y_value: {y_value}")
 
 # ========================
-# 3. Operators
+# Section 2: Data Types
 # ========================
 
-# Example 1: Arithmetic Operators
-a, b = 15, 4
-print(a + b)  # Addition
-print(a - b)  # Subtraction
-print(a * b)  # Multiplication
-print(a / b)  # Division
-print(a % b)  # Modulus
-print(a ** b) # Exponentiation
+# Example 1: Common data types
+integer_value = 123
+float_value = 3.14
+string_value = "Python"
+boolean_value = False
 
-# Example 2: Comparison Operators
-print(a > b)  # True
-print(a < b)  # False
-print(a == b) # False
+# Example 2: Collection data types
+list_value = [1, 2, 3]
+dict_value = {"key": "value"}
+tuple_value = (4, 5, 6)
+set_value = {"apple", "banana", "cherry"}
 
-# Example 3: Logical Operators
-print(a > 10 and b < 5)  # True
-print(a > 20 or b < 5)   # True
+# Example 3: Checking types
+print(type(integer_value))
+print(type(list_value))
 
 # ========================
-# 4. Control Structures
+# Section 3: Operators
 # ========================
 
-# Example 1: If-Else Statements
-num = int(input("Enter a number: "))
-if num > 0:
+# Example 1: Arithmetic operators
+num_a, num_b = 15, 4
+print(num_a + num_b)
+print(num_a - num_b)
+print(num_a * num_b)
+print(num_a / num_b)
+print(num_a % num_b)
+print(num_a ** num_b)
+
+# Example 2: Comparison operators
+print(num_a > num_b)
+print(num_a < num_b)
+print(num_a == num_b)
+
+# Example 3: Logical operators
+print(num_a > 10 and num_b < 5)
+print(num_a > 20 or num_b < 5)
+
+# ========================
+# Section 4: Control Flow
+# ========================
+
+# Example 1: If-elif-else statement
+number_to_check = -3
+if number_to_check > 0:
     print("Positive")
-elif num < 0:
+elif number_to_check < 0:
     print("Negative")
 else:
     print("Zero")
 
-# Example 2: For Loops
-for i in range(1, 6):
-    print(f"Iteration {i}")
+# Example 2: For loop
+for index in range(1, 6):
+    print(f"Iteration {index}")
 
-# Example 3: While Loops
-count = 3
-while count > 0:
-    print(f"Countdown: {count}")
-    count -= 1
+# Example 3: While loop
+countdown = 3
+while countdown > 0:
+    print(f"Countdown: {countdown}")
+    countdown -= 1
 
 # ========================
-# 5. Functions
+# Section 5: Functions
 # ========================
 
-# Example 1: Basic Function
+
 def greet(name):
+    """
+    Return a simple greeting message.
+
+    Args:
+        name (str): Name of the learner.
+
+    Returns:
+        str: Greeting message.
+    """
     return f"Hello, {name}!"
 
-print(greet("Alice"))
 
-# Example 2: Function with Default Arguments
 def greet_with_default(name="Guest"):
+    """
+    Return a welcome message with a default name.
+
+    Args:
+        name (str): Optional visitor name.
+
+    Returns:
+        str: Welcome message.
+    """
     return f"Welcome, {name}!"
 
-print(greet_with_default())
-print(greet_with_default("Bob"))
 
-# Example 3: Factorial Function
-def factorial(n):
+def factorial(number):
+    """
+    Compute factorial using a loop.
+
+    Args:
+        number (int): Non-negative integer.
+
+    Returns:
+        int: Factorial result.
+    """
     result = 1
-    for i in range(1, n + 1):
-        result *= i
+    for value in range(1, number + 1):
+        result *= value
     return result
 
-print(factorial(5))  # 120
 
-# ========================
-# 6. Additional Examples
-# ========================
-
-# Example 1: Prime Number Checker
-def is_prime(n):
-    if n <= 1:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
-
-print(is_prime(7))   # True
-print(is_prime(10))  # False
-
-# Example 2: Palindrome Checker
-def is_palindrome(string):
-    return string == string[::-1]
-
-print(is_palindrome("radar"))  # True
-print(is_palindrome("python")) # False
-
-# Example 3: Number Guessing Game
-import random
-
-number_to_guess = random.randint(1, 50)
-attempts = 5
-
-while attempts > 0:
-    guess = int(input("Guess the number: "))
-    if guess == number_to_guess:
-        print("Congratulations! You guessed it!")
-        break
-    elif guess < number_to_guess:
-        print("Too low!")
-    else:
-        print("Too high!")
-    attempts -= 1
-
-if attempts == 0:
-    print(f"Sorry, the number was {number_to_guess}.")
+print(greet("Alice"))
+print(greet_with_default())
+print(greet_with_default("Bob"))
+print(factorial(5))

@@ -1,56 +1,95 @@
-# In-Class Exercises
+"""
+Lesson 1 In-Class Exercises (No Answers)
+========================================
 
-# 1. Define and Print Variables
-# Define two variables, string and num, and assign them proper values.
-# Print a sentence containing the two variables.
+This file is intentionally scaffold-only.
+Implement each TODO during class.
+"""
 
+# ========================
+# Section 1: Variables
+# ========================
 
-# 2. User Input and Data Conversion
-# Take two numbers as input from the user.
-# Convert the numbers to integers and print their sum.
+# Exercise 1:
+# TODO: Define variables for student name and age.
+# TODO: Print a sentence using f-string formatting.
 
-
-# 3. Identify Data Types
-# Define variables of different data types (int, float, string, boolean).
-# Print the data types of the variables.
-
-
-# 4. Perform Arithmetic Operations
-# Take two numbers as input from the user.
-# Perform addition, subtraction, multiplication, division, and modulus operations on the numbers.
-
-
-# 5. Conditional Logic
-# Take a number as input from the user.
-# If the number is positive, print "Positive".
-# If the number is negative, print "Negative".
-# If the number is zero, print "Zero".
+# Exercise 2:
+# TODO: Convert two string numbers to integers.
+# TODO: Print their sum and division result.
 
 
-# 6. Even or Odd
-# Take a number as input from the user.
-# If the number is even, print "Even".
-# If the number is odd, print "Odd".
-# Hint: Use the modulus operator (%).
+# ========================
+# Section 2: Data Types
+# ========================
+
+# Exercise 3:
+# TODO: Create int, float, str, and bool variables.
+# TODO: Print each variable's data type.
 
 
-# 7. For Loop with Range
-# Print numbers from 1 to 5 using a for loop and the range function.
+# ========================
+# Section 3: Operators
+# ========================
+
+# Exercise 4:
+# TODO: Define two numbers.
+# TODO: Print +, -, *, /, and % results.
 
 
-# 8. Factorial with While Loop
-# Take a number as input from the user.
-# Calculate the factorial of the number using a while loop.
-# Print the factorial.
+# ========================
+# Section 4: Control Flow
+# ========================
+
+# Exercise 5:
+# TODO: Write an if/elif/else block to classify a number as
+# positive, negative, or zero.
+
+# Exercise 6:
+# TODO: Determine whether a number is even or odd.
+
+# Exercise 7:
+# TODO: Use a for-loop to print values 1 through 5.
+
+# Exercise 8:
+# TODO: Compute factorial using a while-loop.
 
 
-# 9. Function to Add Numbers
-# Define a function that takes two numbers as input and returns their sum.
-# Call the function with two numbers and print the result.
+# ========================
+# Section 5: Functions
+# ========================
 
 
-# 10. Function with Default Arguments
-# Define a function that takes a name as input and returns a greeting message.
-# The function should have a default argument "Guest".
-# Call the function with and without an argument and print the messages.
+def add_numbers(left, right):
+    """
+    Return the sum of two values.
 
+    Args:
+        left (int | float): First value.
+        right (int | float): Second value.
+
+    Returns:
+        int | float: Sum result.
+    """
+    # TODO: Implement addition logic.
+    pass
+
+
+def greet_user(name="Guest"):
+    """
+    Return a greeting message.
+
+    Args:
+        name (str): Optional name to greet.
+
+    Returns:
+        str: Greeting text.
+    """
+    # TODO: Return greeting string.
+    pass
+
+
+if __name__ == "__main__":
+    # TODO: Call `add_numbers` with sample values.
+    # TODO: Call `greet_user` with and without an argument.
+    pass

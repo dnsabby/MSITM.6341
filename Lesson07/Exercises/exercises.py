@@ -1,58 +1,78 @@
-# Lesson 7: In-Class Exercises - Working with a New Dataset
-# Dataset: Student Performance Data
-# Objective: Practice data analysis and basic machine learning using alternative methods
+"""
+Lesson 7 In-Class Exercises (No Answers)
+========================================
 
-import pandas as pd
-import numpy as np
+This file is scaffold-only and aligned with Lesson 7 examples.
+"""
+
 import matplotlib.pyplot as plt
+import pandas as pd
 import seaborn as sns
-from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.model_selection import train_test_split
 
-# Sample Dataset (simulated student data)
 data = {
-    'StudentID': [101, 102, 103, 104, 105, 106, 107],
-    'Hours_Studied': [5, 3, 8, 2, 7, 6, 1],
-    'Attendance_Rate': [0.9, 0.6, 0.95, 0.5, 0.8, 0.85, 0.4],
-    'Assignments_Completed': [10, 7, 12, 6, 11, 10, 4],
-    'Passed': [1, 0, 1, 0, 1, 1, 0]  # 1 = Passed, 0 = Failed
+    "StudentID": [101, 102, 103, 104, 105, 106, 107],
+    "Hours_Studied": [5, 3, 8, 2, 7, 6, 1],
+    "Attendance_Rate": [0.9, 0.6, 0.95, 0.5, 0.8, 0.85, 0.4],
+    "Assignments_Completed": [10, 7, 12, 6, 11, 10, 4],
+    "Passed": [1, 0, 1, 0, 1, 1, 0],
 }
 
-# Create DataFrame
 df = pd.DataFrame(data)
 
-# --- Exercise 1: Basic Data Exploration ---
-# TODO 1.1: Print the first few rows of the dataset
 
-# TODO 1.2: Check for missing values
-
-# TODO 1.3: Summary statistics
-
-
-# --- Exercise 2: Data Visualization ---
-# TODO 2.1: Create a pairplot of numerical features
+def exploration_exercise():
+    """
+    Inspect the dataset and basic quality metrics.
+    """
+    # TODO: Print head(), isnull().sum(), and describe().
+    pass
 
 
-# TODO 2.2: Create a heatmap of feature correlations
+def visualization_exercise():
+    """
+    Create pairplot and correlation heatmap.
+    """
+    # TODO: Build pairplot for numeric features.
+    # TODO: Build annotated heatmap.
+    _ = plt, sns
+    pass
 
 
-# --- Exercise 3: Data Preprocessing ---
-# TODO 3.1: Normalize features (optional - here we use raw values)
+def preprocessing_exercise():
+    """
+    Prepare model features and train/test split.
+    """
+    # TODO: Select feature columns and target.
+    # TODO: Apply normalization (optional but recommended).
+    # TODO: Split into train/test sets.
+    pass
 
 
-# TODO 3.2: Train/Test Split
+def modeling_exercise():
+    """
+    Train and evaluate a RandomForest classifier.
+    """
+    # TODO: Initialize model.
+    # TODO: Fit model with training data.
+    # TODO: Predict test labels.
+    # TODO: Print accuracy and classification report.
+    _ = RandomForestClassifier, train_test_split
+    _ = accuracy_score, classification_report
+    pass
 
 
-# --- Exercise 4: Train a Random Forest Model ---
-# TODO 4.1: Initialize and train the classifier
+def feature_importance_exercise():
+    """
+    Plot model feature importance.
+    """
+    # TODO: Create feature importance DataFrame.
+    # TODO: Plot with seaborn bar chart.
+    pass
 
 
-# TODO 4.2: Make predictions and evaluate
-
-
-# --- Exercise 5: Feature Importance ---
-# TODO 5.1: Plot feature importance
-
-
-# Challenge: Try other classifiers like KNeighborsClassifier or LogisticRegression
+if __name__ == "__main__":
+    # TODO: Call exercises in order.
+    pass

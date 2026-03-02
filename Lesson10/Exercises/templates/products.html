@@ -1,28 +1,19 @@
 {% extends 'base.html' %}
 
 {% block title %}Products{% endblock %}
-
-{% block heading %}Our Products{% endblock %}
+{% block heading %}TODO: Products Page{% endblock %}
 
 {% block content %}
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Category</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for product in products %}
-            <tr>
-                <td>{{ product.id }}</td>
-                <td>{{ product.name }}</td>
-                <td>${{ product.price }}</td>
-                <td>{{ product.category }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<p>TODO: Render product table using Jinja loop.</p>
+<table>
+    <thead>
+        <tr>
+            <th>TODO: Column 1</th>
+            <th>TODO: Column 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- TODO: Loop through product records here -->
+    </tbody>
+</table>
 {% endblock %}

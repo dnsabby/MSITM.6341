@@ -1,56 +1,91 @@
 """
-Lesson 6: Take-Home Exercise - Data Science with a Kaggle Dataset
-------------------------------------------------------------------
-Objective:
-- Find and download a CSV dataset from Kaggle (any topic of interest).
-- Load and inspect the dataset.
-- Clean and preprocess the dataset.
-- Perform exploratory data analysis (EDA).
-- Generate at least two visualizations.
+Lesson 6 Take-Home Assignment: Kaggle Dataset EDA
+=================================================
 
-Instructions:
-1. Visit https://www.kaggle.com and find a dataset you are interested in.
-2. Download the dataset (must be a CSV file).
-3. Place the CSV file in the same directory as this script.
-4. Update the `file_name` variable with the correct filename.
-5. Run this script to complete the exercise.
+Synchronized topics:
+- Data loading and inspection
+- Missing-value handling
+- Descriptive statistics
+- Visualization with matplotlib/seaborn
+
+Important:
+- This is a scaffold only; implement all TODO sections.
 """
 
-# Import necessary libraries
-import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 import seaborn as sns
 
-# Step 1: Ask the user to enter the dataset file name
-file_name = input("Enter the name of your Kaggle dataset CSV file (including .csv extension): ")
 
-try:
-    # Step 2: Load the dataset
-    df = pd.read_csv(file_name)
-    print("\nDataset successfully loaded!")
+def load_dataset(file_name):
+    """
+    Load a CSV file selected by the student.
 
-    # Step 3: Display basic information about the dataset
-    print("\n========== Dataset Overview ==========")
-    print("\nFirst 5 Rows:\n", df.head())
-    print("\nBasic Info:\n")
-    print(df.info())
-    print("\nMissing Values:\n", df.isnull().sum())
+    Args:
+        file_name (str): CSV filename.
 
-    # TODO: Step 4: Data Cleaning - Ask the user to fill or drop missing values
-    
-
-    # TODO: Step 5: Ask the user to select a column for descriptive statistics
+    Returns:
+        pandas.DataFrame: Loaded dataset.
+    """
+    # TODO: Implement safe CSV loading with error handling.
+    pass
 
 
-    # TODO: Step 6: Ask the user to choose a visualization type
+def clean_dataset(df):
+    """
+    Apply missing-value strategy chosen by the user.
+
+    Args:
+        df (pandas.DataFrame): Raw dataset.
+
+    Returns:
+        pandas.DataFrame: Cleaned dataset.
+    """
+    # TODO: Prompt user to choose fill vs drop strategy.
+    # TODO: Apply the selected cleaning method.
+    pass
 
 
-except FileNotFoundError:
-    print("\nError: File not found. Please ensure the dataset file is in the same directory as this script.")
+def summarize_column(df, column_name):
+    """
+    Print descriptive statistics for one selected column.
 
-except pd.errors.EmptyDataError:
-    print("\nError: The file is empty or not a valid CSV format.")
+    Args:
+        df (pandas.DataFrame): Dataset.
+        column_name (str): Column to summarize.
+    """
+    # TODO: Validate column and print useful summary stats.
+    pass
 
-except Exception as e:
-    print(f"\nAn unexpected error occurred: {e}")
+
+def create_visualizations(df):
+    """
+    Generate at least two visualizations.
+
+    Args:
+        df (pandas.DataFrame): Dataset to plot.
+    """
+    # TODO: Ask user for plot choices and generate charts.
+    # Suggested options: histogram, boxplot, scatterplot, countplot.
+    _ = plt, sns
+    pass
+
+
+def main():
+    """
+    Orchestrate Lesson 6 assignment steps.
+    """
+    file_name = input(
+        "Enter your Kaggle dataset CSV filename (including .csv): "
+    ).strip()
+
+    # TODO: Call load_dataset().
+    # TODO: Show dataset overview (head/info/missing values).
+    # TODO: Call clean_dataset().
+    # TODO: Call summarize_column().
+    # TODO: Call create_visualizations().
+    _ = file_name
+
+
+if __name__ == "__main__":
+    main()

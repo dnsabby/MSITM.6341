@@ -1,91 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Data Dashboard</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        .card { border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 20px; }
-        .row { display: flex; flex-wrap: wrap; margin: 0 -10px; }
-        .col { flex: 1; padding: 0 10px; min-width: 300px; }
-        h1, h2 { color: #333; }
-        table { width: 100%; border-collapse: collapse; }
-        table, th, td { border: 1px solid #ddd; }
-        th, td { padding: 10px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        #map { height: 300px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; }
-        .iss-position { padding: 15px; background-color: #f8f9fa; border-radius: 5px; margin-bottom: 15px; }
-    </style>
-    <!-- Add a simple map placeholder -->
-    <script>
-        // Function to update ISS data
-        function updateISSData() {
-            fetch('/api/iss')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('iss-lat').textContent = data.latitude;
-                    document.getElementById('iss-long').textContent = data.longitude;
-                    document.getElementById('iss-time').textContent = data.timestamp;
-                })
-                .catch(error => console.error('Error fetching ISS data:', error));
-        }
-        
-        // Update ISS data every 10 seconds
-        setInterval(updateISSData, 10000);
-        
-        // Initialize when the page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            updateISSData();
-        });
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Dashboard</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Data Dashboard</h1>
-        
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <h2>ISS Current Location</h2>
-                    <div class="iss-position">
-                        <p><strong>Latitude:</strong> <span id="iss-lat">{{ iss_data.latitude }}</span></p>
-                        <p><strong>Longitude:</strong> <span id="iss-long">{{ iss_data.longitude }}</span></p>
-                        <p><strong>Last Updated:</strong> <span id="iss-time">{{ iss_data.timestamp }}</span></p>
-                    </div>
-                    <div id="map">
-                        <p style="text-align: center; padding-top: 130px;">Map Placeholder</p>
-                    </div>
-                    <p><small>Data refreshes automatically every 10 seconds</small></p>
-                </div>
-            </div>
-            
-            <div class="col">
-                <div class="card">
-                    <h2>Upcoming Python Events</h2>
-                    {% if python_events %}
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Event</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for event in python_events %}
-                                <tr>
-                                    <td>{{ event.date }}</td>
-                                    <td>{{ event.name }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    {% else %}
-                        <p>No upcoming events found.</p>
-                    {% endif %}
-                    <p><small>Data from Python.org</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1>TODO: Build Combined Dashboard</h1>
+
+    <section>
+        <h2>API Data Section</h2>
+        <p>TODO: Show live API values here.</p>
+    </section>
+
+    <section>
+        <h2>Scraped Data Section</h2>
+        <p>TODO: Render scraped records in a table.</p>
+    </section>
+
+    <section>
+        <h2>Auto Refresh</h2>
+        <p>TODO: Add JavaScript polling to refresh selected values.</p>
+    </section>
 </body>
 </html>

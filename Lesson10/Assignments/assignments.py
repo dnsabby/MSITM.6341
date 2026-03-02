@@ -1,34 +1,48 @@
-# ============================================
-# Final Group Project: Development Phase
-# ============================================
+"""
+Lesson 10 Assignment: Final Group Project Development
+=====================================================
 
-# Welcome to Lesson 10!
-# Now that your proposals have been submitted and approved,
-# it's time to begin the actual implementation of your group project.
+Synchronized topics:
+- End-to-end project execution across lessons 1-10
+- Team planning, implementation, testing, and presentation
+"""
 
-# --------------------------------------------
-# 🛠 Work on Your Final Project Starts Now
-# --------------------------------------------
+# =============================
+# Development Checklist
+# =============================
+"""
+During this phase, each group should:
+1. Confirm proposal scope and final feature list.
+2. Break work into modules/routes/notebooks by role.
+3. Implement iteratively with version control.
+4. Test functionality, edge cases, and data assumptions.
+5. Prepare final presentation narrative and demo script.
+"""
 
-# During this class, each group should:
-# 1. Begin developing the project based on your submitted proposal.
-# 2. Assign roles and responsibilities within the team.
-# 3. Set internal milestones to stay on track.
 
-# 💾 Submission Timeline:
-# Final projects are due **3 weeks from next Monday**.
+# =============================
+# Deliverables
+# =============================
+"""
+Required:
+- Working project codebase
+- Brief technical summary (problem, data, approach, outcome)
+- Final presentation (10-20 minutes)
 
-# 📅 Presentation Day:
-# Final presentations will take place during our last class session.
-# Each group will have **a minimum of 10 minutes** and **a maximum of 20 minutes**
-# to present their project, demonstrate functionality, and discuss challenges & takeaways.
+Suggested structure:
+1. Problem statement
+2. Data source and preprocessing
+3. Core implementation
+4. Results/evaluation
+5. Challenges and lessons learned
+"""
 
-# 🎯 Grading Criteria:
-# Projects will be graded based on:
-# - Functionality and completeness
-# - Technical complexity and problem-solving
-# - Team collaboration and individual participation
-# - Presentation clarity and delivery
 
-# Let me know if your group needs help scoping features,
-# accessing data sources, or solving technical issues.
+# =============================
+# Instructor Notes
+# =============================
+"""
+- Provide progress updates each week.
+- Ask for scope feedback early if blocked.
+- Keep responsibilities balanced across team members.
+"""

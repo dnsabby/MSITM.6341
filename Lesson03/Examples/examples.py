@@ -1,152 +1,209 @@
 """
-Lesson 3 Cheatsheet: Classes, Objects, and Modules in Python
-============================================================
-This cheatsheet covers the core concepts of Object-Oriented Programming (OOP)
-in Python along with modules and packages.
+Lesson 3 Examples: OOP, Modules, and Packages
+==============================================
+
+This file is synchronized with `Lesson03/Exercises/exercises.py`.
+Section order in both files:
+1) Classes and objects
+2) Inheritance
+3) Encapsulation
+4) Modules
+5) Packages
+6) Polymorphism
 """
 
-# 1. Defining a Class and Creating an Object
+import math
+import random
+
+import my_module
+from mypackage import module1, module2
+
+
+# ========================
+# Section 1: Classes and Objects
+# ========================
+
+
 class Car:
-    """A simple class to represent a car."""
-    
+    """Represent a car with basic descriptive fields."""
+
     def __init__(self, brand, model, year):
-        self.brand = brand  # Instance variable
-        self.model = model  # Instance variable
-        self.year = year    # Instance variable
-    
+        self.brand = brand
+        self.model = model
+        self.year = year
+
     def display_info(self):
-        """Method to display car details."""
+        """
+        Return a user-friendly description of the car.
+
+        Returns:
+            str: Car description.
+        """
         return f"{self.year} {self.brand} {self.model}"
 
-# Creating an object (instance of Car)
-car1 = Car("Toyota", "Camry", 2022)
-print(car1.display_info())  # Output: 2022 Toyota Camry
+
+car_one = Car("Toyota", "Camry", 2022)
+print(car_one.display_info())
 
 
-# 2. Class Attributes vs Instance Attributes
-class Student:
-    school = "XYZ University"  # Class attribute (shared by all instances)
-    
-    def __init__(self, name, student_id):
-        self.name = name  # Instance attribute
-        self.student_id = student_id  # Instance attribute
-    
-    def get_details(self):
-        return f"{self.name} ({self.student_id}), School: {Student.school}"
-
-student1 = Student("Alice", "S12345")
-print(student1.get_details())  # Output: Alice (S12345), School: XYZ University
+# ========================
+# Section 2: Inheritance
+# ========================
 
 
-# 3. Encapsulation (Private and Public Attributes)
+class Person:
+    """Represent a person with name and age."""
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def get_info(self):
+        """
+        Return base person details.
+
+        Returns:
+            str: Person info.
+        """
+        return f"{self.name} ({self.age} years old)"
+
+
+class Student(Person):
+    """Extend Person with a student identifier."""
+
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)
+        self.student_id = student_id
+
+    def get_info(self):
+        """
+        Return student details including inherited data.
+
+        Returns:
+            str: Student info.
+        """
+        return f"{super().get_info()} | ID: {self.student_id}"
+
+
+student_one = Student("Alice", 20, "S12345")
+print(student_one.get_info())
+
+
+# ========================
+# Section 3: Encapsulation
+# ========================
+
+
 class BankAccount:
-    def __init__(self, owner, balance):
-        self.owner = owner          # Public attribute
-        self.__balance = balance    # Private attribute (name mangling)
-    
+    """Protect account balance using a private attribute."""
+
+    def __init__(self, owner, opening_balance):
+        self.owner = owner
+        self.__balance = opening_balance
+
     def deposit(self, amount):
-        """Method to add money to the balance."""
+        """
+        Add funds to the account when amount is valid.
+
+        Args:
+            amount (float): Deposit value.
+        """
         if amount > 0:
             self.__balance += amount
-    
+
+    def withdraw(self, amount):
+        """
+        Withdraw funds if balance is sufficient.
+
+        Args:
+            amount (float): Withdrawal value.
+        """
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+
     def get_balance(self):
-        """Public method to access private attribute."""
+        """
+        Safely return current account balance.
+
+        Returns:
+            float: Current balance.
+        """
         return self.__balance
 
-# Creating an instance
+
 account = BankAccount("John Doe", 1000)
-account.deposit(500)
-print(account.get_balance())  # Output: 1500
-# print(account.__balance)  # This will raise an AttributeError
+account.deposit(250)
+account.withdraw(100)
+print("Balance:", account.get_balance())
 
 
-# 4. Inheritance (Parent and Child Classes)
-class Animal:
-    def __init__(self, name):
-        self.name = name
-    
-    def speak(self):
-        return "Some generic sound"
+# ========================
+# Section 4: Modules
+# ========================
 
-class Dog(Animal):
-    def speak(self):
-        return "Woof! Woof!"
-
-# Creating instances
-generic_animal = Animal("Animal")
-dog = Dog("Buddy")
-print(generic_animal.speak())  # Output: Some generic sound
-print(dog.speak())  # Output: Woof! Woof!
+print(my_module.greet("Dennis"))
+print("Square root of 16:", math.sqrt(16))
+print("Random integer 1-10:", random.randint(1, 10))
 
 
-# 5. Polymorphism (Method Overriding)
-class Bird:
-    def fly(self):
-        return "Flying high!"
+# ========================
+# Section 5: Packages
+# ========================
 
-class Penguin(Bird):
-    def fly(self):
-        return "I can't fly, but I can swim!"
-
-bird = Bird()
-penguin = Penguin()
-print(bird.fly())  # Output: Flying high!
-print(penguin.fly())  # Output: I can't fly, but I can swim!
+print("module1.add(5, 3):", module1.add(5, 3))
+print("module2.subtract(10, 4):", module2.subtract(10, 4))
 
 
-# 6. Modules in Python (Creating and Importing)
-# Save this in a separate file named `my_module.py`
-"""
-def greet(name):
-    return f"Hello, {name}!"
-"""
-
-# In another script, import and use the module
-# import my_module
-# print(my_module.greet("Alice"))  # Output: Hello, Alice!
+# ========================
+# Section 6: Polymorphism
+# ========================
 
 
-# 7. Using Built-in Modules
-import math
-print(math.sqrt(16))  # Output: 4.0
+class Shape:
+    """Base class for shape area calculations."""
 
-import random
-print(random.randint(1, 10))  # Output: Random number between 1 and 10
+    def area(self):
+        """
+        Return default area for unknown shapes.
 
-
-# 8. Creating and Importing Packages
-# A package is a directory containing multiple modules
-# Example Directory Structure:
-"""
-mypackage/
-    __init__.py
-    module1.py
-    module2.py
-"""
-
-# Inside `mypackage/module1.py`
-"""
-def add(a, b):
-    return a + b
-"""
-
-# Inside another script
-# from mypackage import module1
-# print(module1.add(5, 3))  # Output: 8
+        Returns:
+            float: Area value.
+        """
+        return 0.0
 
 
-# 9. Best Practices in OOP and Modular Programming
-"""
-- Use meaningful class and function names
-- Follow the principle of encapsulation (use private attributes when needed)
-- Keep modules small and focused on a single responsibility
-- Follow DRY (Don't Repeat Yourself) principle by using reusable methods
-"""
+class Circle(Shape):
+    """Circle shape that overrides area behavior."""
 
-# 10. Additional Resources
-"""
-- Understanding OOP concepts: https://realpython.com/python3-object-oriented-programming/
-- Python modules and packages: https://realpython.com/python-modules-packages/
-- Examples of read and write with files: https://www.w3schools.com/python/python_file_write.asp
-- Working with files in Python: https://realpython.com/read-write-files-python/
-"""
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        """
+        Compute circle area.
+
+        Returns:
+            float: Circle area.
+        """
+        return math.pi * (self.radius ** 2)
+
+
+class Rectangle(Shape):
+    """Rectangle shape with custom area formula."""
+
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        """
+        Compute rectangle area.
+
+        Returns:
+            float: Rectangle area.
+        """
+        return self.width * self.height
+
+
+for shape in [Shape(), Circle(5), Rectangle(4, 6)]:
+    print(f"{shape.__class__.__name__} area: {shape.area():.2f}")

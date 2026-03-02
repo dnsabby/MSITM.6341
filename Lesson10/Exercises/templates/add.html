@@ -1,33 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Add Product{% endblock %}
-
-{% block heading %}Add New Product{% endblock %}
+{% block title %}Add Item{% endblock %}
+{% block heading %}TODO: Add Form Page{% endblock %}
 
 {% block content %}
-    <form method="POST">
-        <div class="form-group">
-            <label for="name">Product Name:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="price">Price:</label>
-            <input type="number" id="price" name="price" step="0.01" min="0" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="category">Category:</label>
-            <select id="category" name="category" required>
-                <option value="">Select a category</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Kitchen">Kitchen</option>
-                <option value="Books">Books</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
-        
-        <button type="submit">Add Product</button>
-    </form>
+<p>TODO: Build form fields and submit button.</p>
+<form method="POST">
+    <!-- TODO: Add input fields -->
+    <button type="submit">Submit</button>
+</form>
 {% endblock %}

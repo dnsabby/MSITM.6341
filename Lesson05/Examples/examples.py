@@ -10,6 +10,9 @@ This script demonstrates:
   5. Pandas: Creating and manipulating a DataFrame.
   6. NumPy: Creating arrays and performing vectorized operations.
   7. Integrated Exercise: Combining all of the above modules into one application.
+
+Synchronization note:
+  - This file is aligned with `Lesson05/Exercises/exercises.py`.
 """
 
 import os
@@ -271,11 +274,11 @@ def main():
     os.chdir(new_dir)
 
     demo_file_handling()
-    demo_web_requests()
-    demo_csv_json_processing()
-    demo_pandas()
-    demo_numpy()
-    integrated_exercise()
+    #demo_web_requests()
+    #demo_csv_json_processing()
+    #demo_pandas()
+    #demo_numpy()
+    #integrated_exercise()
 
 if __name__ == '__main__':
     main()

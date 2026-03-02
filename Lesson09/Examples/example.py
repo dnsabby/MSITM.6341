@@ -1,6 +1,10 @@
-# Lesson 9 Cheat Sheet: Web Scraping, APIs, and Flask Integration
-# Python Programming for Data Science & Web Applications
-# Instructor: Dennis Wang
+"""
+Lesson 9 Examples: Web Scraping, APIs, and Flask Integration
+=============================================================
+
+Synchronization note:
+- This file is aligned with `Lesson09/Exercises/exercises.py`.
+"""
 
 """
 SECTION 1: Web Scraping with BeautifulSoup

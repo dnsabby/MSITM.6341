@@ -1,39 +1,86 @@
-# Lesson 8 Exercises: Web Application Basics with Flask & HTML
-# ------------------------------------------------------------
-# These exercises are focused on building Flask apps and using basic HTML templates.
-# Ideal for students beginning to combine Python logic with front-end rendering.
-
 """
-Exercise 1: Hello, User!
-Create a route `/hello/<name>` that takes a name as a URL path parameter.
-Render an HTML page that says "Hello, <name>! Welcome to Flask."
-Use `render_template_string()` to dynamically insert the name.
+Lesson 8 Exercises (No Answers): Flask + HTML
+=============================================
+
+This file is scaffold-only.
+Implement each route as instructed.
 """
 
-"""
-Exercise 2: Basic HTML Form
-Create a route `/info` with a GET method that shows a form asking for:
-- Name (text input)
-- Favorite color (text input)
-On form submission (POST), show a page that thanks the user and displays their inputs.
-"""
+import os
 
-"""
-Exercise 3: Multiplication Table Generator
-Build a form where the user inputs a number.
-After submission, render a simple HTML page with a multiplication table for that number (1 to 10).
-"""
+from flask import Flask, redirect, render_template, request, url_for
 
-"""
-Exercise 4: List Display from Backend
-Define a list of fruits in Python. Create a route `/fruits` that passes this list to an HTML template.
-Render the list as an unordered bullet list using HTML templates.
-Use `render_template()` to load the HTML file.
-"""
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+app = Flask(__name__, template_folder="Templates")
 
-"""
-Exercise 5: Simple HTML Table of Users
-Create a route `/users` that passes a list of dictionaries like:
-[{'name': 'Alice', 'age': 28}, {'name': 'Bob', 'age': 35}]
-Render this data as an HTML table with columns for Name and Age.
-"""
+
+@app.route("/")
+def home():
+    """
+    Exercise 0:
+    TODO: Build a simple homepage with links to exercise routes.
+    """
+    return "<h1>TODO: Build Lesson 8 home page.</h1>"
+
+
+@app.route("/hello/<name>")
+def hello_user(name):
+    """
+    Exercise 1:
+    TODO: Render dynamic greeting for `name`.
+    """
+    _ = name
+    return "<h2>TODO: Implement Exercise 1 greeting route.</h2>"
+
+
+@app.route("/info", methods=["GET", "POST"])
+def user_info():
+    """
+    Exercise 2:
+    TODO: Build form (GET) and submission response (POST).
+    """
+    if request.method == "POST":
+        return "<h2>TODO: Display submitted form values.</h2>"
+    return "<h2>TODO: Build Exercise 2 form page.</h2>"
+
+
+@app.route("/table", methods=["GET", "POST"])
+def multiplication_table():
+    """
+    Exercise 3:
+    TODO: Build multiplication table form + result output.
+    """
+    if request.method == "POST":
+        return "<h2>TODO: Show multiplication table result.</h2>"
+    return "<h2>TODO: Build Exercise 3 input form.</h2>"
+
+
+@app.route("/fruits")
+def fruit_list():
+    """
+    Exercise 4:
+    TODO: Pass backend fruit list into `Templates/ex1.html`.
+    """
+    fruits = []
+    return render_template("ex1.html", fruits=fruits)
+
+
+@app.route("/users")
+def users_table():
+    """
+    Exercise 5:
+    TODO: Render list of user dictionaries as HTML table.
+    """
+    return "<h2>TODO: Implement Exercise 5 users table.</h2>"
+
+
+@app.route("/go-home")
+def go_home():
+    """
+    Utility route for redirect practice.
+    """
+    return redirect(url_for("home"))
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

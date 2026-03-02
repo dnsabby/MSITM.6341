@@ -1,45 +1,101 @@
 """
-Lesson 2: Advanced Data Types - In-class Exercises
+Lesson 2 In-Class Exercises (No Answers)
+========================================
+
+This file is scaffold-only.
+Use the matching examples file as your reference.
 """
 
-# =============================
-# In-class Exercise 1: Inventory Management System
-# =============================
-"""
-Task:
-1. Create a dictionary where the keys are product names and the values are dictionaries containing:
-   - Price
-   - Stock quantity
-2. Add a new product to the inventory.
-3. Update the stock of a product when an item is sold.
-4. Display the available products with their prices and stock.
-"""
-
+import random
 
 
 # =============================
-# In-class Exercise 2: Student Performance Tracker
+# Exercise 1: Collections Practice
 # =============================
-"""
-Task:
-1. Create a dictionary where each key is a student's name and the value is a dictionary containing:
-   - A list of subjects
-   - A list of corresponding grades
-2. Add a new student with their subjects and grades.
-3. Update a student's grade in a specific subject.
-4. Calculate and display each student's average grade.
-"""
 
+# TODO: Create an `inventory` dictionary with nested details.
+# TODO: Add one new product.
+# TODO: Update stock for one product.
+# TODO: Loop through inventory and print a summary.
 
 
 # =============================
-# In-class Exercise 3: Pseudo-coding - Rock, Paper, Scissors Game
+# Exercise 2: Student Tracker
 # =============================
+
+# TODO: Create a nested dictionary for students and grades.
+# TODO: Add one student.
+# TODO: Update one existing grade.
+# TODO: Compute and print each student's average.
+
+
+# =============================
+# Exercise 3: Indexing and Slicing
+# =============================
+
+# TODO: Create a sentence string.
+# TODO: Print first N characters, last N characters, and a stepped slice.
+
+
+# =============================
+# Exercise 4: Control Flow
+# =============================
+
+# TODO: Iterate through a list of integers.
+# TODO: Print whether each number is positive, negative, or zero.
+
+
+# =============================
+# Exercise 5: Function + Scope
+# =============================
+
+course_name = "MSITM.6341"
+
+
+def summarize_student(name, grades):
+    """
+    Build a student summary with average grade.
+
+    Args:
+        name (str): Student name.
+        grades (list[int | float]): Numeric grades.
+
+    Returns:
+        str: Summary line.
+    """
+    # TODO: Compute average and return formatted summary.
+    pass
+
+
+# =============================
+# Exercise 6: Pseudo-code to Python
+# =============================
+
 """
-Task:
-1. Write a pseudo-code for a Rock, Paper, Scissors game.
-2. Include the rules of the game and the steps involved.
-3. Define the conditions for winning, losing, or tying.
-4. Describe the inputs and outputs of the game.
+Pseudo-code for Rock, Paper, Scissors
+1. Store valid choices.
+2. Read player choice.
+3. Randomly choose computer choice.
+4. Compare choices to determine winner.
 """
 
+
+def determine_rps_winner(player_choice, computer_choice):
+    """
+    Return round outcome for Rock-Paper-Scissors.
+
+    Args:
+        player_choice (str): User choice.
+        computer_choice (str): Computer choice.
+
+    Returns:
+        str: "Player wins", "Computer wins", or "Tie".
+    """
+    # TODO: Implement winner logic.
+    pass
+
+
+if __name__ == "__main__":
+    # TODO: Add quick test run with one random computer choice.
+    _ = random
+    pass

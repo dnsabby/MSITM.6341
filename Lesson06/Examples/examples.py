@@ -11,6 +11,9 @@ This script covers:
 To run this script, you need to have the following libraries installed:
 pip install numpy pandas matplotlib seaborn
 
+Synchronization note:
+- This file is aligned with `Lesson06/Exercises/exercises.py`.
+
 """
 
 # Import necessary libraries
