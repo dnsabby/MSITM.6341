@@ -1,0 +1,80 @@
+{
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": "AGENTS.md"
+    },
+    {
+      "file": "../../Master.Doc/MSITM.6341/claude.md"
+    },
+    {
+      "file": "../../Master.Doc/_project/dbu-msitm-6341/claude.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/documentation/ide_cli_compatibility.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/process/development_lifecycle.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/process/skill_orchestration.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/process/memory_session_architecture.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/process/persona_routing_matrix.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/documentation/code_conventions.md"
+    }
+  ],
+  "github.copilot.chat.testGeneration.instructions": [
+    {
+      "file": "AGENTS.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/documentation/ide_cli_compatibility.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/process/testing_strategy.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/checklists/definition_of_done.md"
+    }
+  ],
+  "github.copilot.chat.reviewSelection.instructions": [
+    {
+      "file": "AGENTS.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/documentation/ide_cli_compatibility.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/prompts/code_review.md"
+    },
+    {
+      "file": "../../Master.Prompt/.agents/checklists/definition_of_done.md"
+    }
+  ],
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": "../../Master.Prompt/.agents/process/git_workflow.md"
+    }
+  ],
+  "files.associations": {
+    "*.md": "markdown",
+    ".env": "shellscript",
+    ".env.*": "shellscript"
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/coverage": true
+  },
+  "markdown.validate.enabled": true,
+  "files.watcherExclude": {
+    "**/.env": true
+  }
+}

@@ -1,0 +1,15 @@
+---
+description: Master.Prompt Cursor shim
+globs:
+alwaysApply: true
+---
+
+Read `AGENTS.md` first.
+
+Canonical Cursor rule: `../../Master.Prompt/.cursor/rules/master-prompt.mdc`
+Read `AGENTS.md` first.
+Use `../../Master.Doc/MSITM.6341/claude.md` for app-specific context.
+Use `../../Master.Doc/_project/dbu-msitm-6341/claude.md` for project-shared runtime context.
+Treat `../../Master.Prompt/` as the canonical command/workflow catalog.
+Resolve prompt architecture updates through `../../Master.Prompt/`, not machine-specific local paths.
+Start with `/auto-pilot` unless the prompt explicitly chooses another route.

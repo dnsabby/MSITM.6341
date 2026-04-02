@@ -1,0 +1,6 @@
+# Cursor Rules
+
+Read `AGENTS.md` in this repo for the local operator contract.
+Use `.cursor/rules/master-prompt.mdc` as the native Cursor rule surface in this repo.
+Use `../../Master.Doc/MSITM.6341/claude.md` for app-specific details.
+Start with `/auto-pilot`.

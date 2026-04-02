@@ -1,0 +1,191 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/session-start.js",
+            "timeout": 5
+          }
+        ],
+        "description": "Load previous session context, detect project stack and package manager"
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/prompt-submit-sync.js",
+            "timeout": 300
+          }
+        ],
+        "description": "Prompt-submit sync guard — safe-updates the active repo and centralized roots before routing"
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/command-kickoff-sync.js",
+            "timeout": 300
+          }
+        ],
+        "description": "Command kickoff git-update guard — enforces workspace repo update checks before slash-command/workflow kickoff"
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/prompt-intent-router.js",
+            "timeout": 5
+          }
+        ],
+        "description": "Prompt intent router — classifies every prompt into the best-fit command/persona/skill/verifier/profile route using assisted auto mode"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/branch-protection.js",
+            "timeout": 5
+          }
+        ],
+        "description": "Branch protection — blocks edits on main/master branch"
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/doc-guard.js",
+            "timeout": 5
+          }
+        ],
+        "description": "Doc proliferation guard — blocks creation of random .md files outside sanctioned paths"
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/pre-push-reminder.js",
+            "timeout": 300
+          }
+        ],
+        "description": "Pre-push sync guard — enforces Master.Prompt + Master.Doc sync/commit/push before app git push"
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/suggest-compact.js",
+            "timeout": 5
+          }
+        ],
+        "description": "Strategic compaction — suggests /compact at logical breakpoints (every 30 edits)"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/auto-format-js.js",
+            "timeout": 30
+          }
+        ],
+        "description": "Auto-format JS/TS — runs Prettier on .js/.jsx/.ts/.tsx files after edits"
+      },
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/auto-format-php.js",
+            "timeout": 30
+          }
+        ],
+        "description": "Auto-format PHP — runs Laravel Pint or php-cs-fixer on .php files after edits"
+      },
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/auto-install-deps.js",
+            "timeout": 60
+          }
+        ],
+        "description": "Auto-install deps — detects PM (npm/yarn/pnpm/bun/composer/go) and runs install when dependency files change"
+      },
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/auto-run-tests.js",
+            "timeout": 90
+          }
+        ],
+        "description": "Auto-run tests — runs Jest/PHPUnit/Pest when test files change"
+      },
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/type-check-ts.js",
+            "timeout": 30
+          }
+        ],
+        "description": "TypeScript type-check — runs tsc --noEmit on .ts/.tsx files (non-blocking)"
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/pre-compact.js",
+            "timeout": 5
+          }
+        ],
+        "description": "Save state before compaction — preserves modified files and TODOs"
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/stop-checks.js",
+            "timeout": 10
+          }
+        ],
+        "description": "Final verification — checks for console.log/debug statements in modified files"
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/session-end.js",
+            "timeout": 5
+          }
+        ],
+        "description": "Persist session state — saves modified files, duration, and context for next session"
+      }
+    ]
+  }
+}

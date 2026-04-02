@@ -1,0 +1,6 @@
+# Windsurf Rules
+
+Read `AGENTS.md` in this repo for the local operator contract.
+Use `.windsurf/rules/rules.md` as the native Windsurf rule surface in this repo.
+Use `../../Master.Doc/MSITM.6341/claude.md` for app-specific details.
+Start with `/auto-pilot`.

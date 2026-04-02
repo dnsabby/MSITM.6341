@@ -1,0 +1,110 @@
+{
+  "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "masterDocProject",
+      "type": "promptString",
+      "description": "Master.Doc project slug for project-scoped validation tasks",
+      "default": "dbu-msitm-6341"
+    },
+    {
+      "id": "promptIntentText",
+      "type": "promptString",
+      "description": "Prompt text to classify through the shared intent router",
+      "default": "Plan architecture and scope before implementation starts."
+    }
+  ],
+  "tasks": [
+    {
+      "label": "Master.Prompt: Runtime Diagnosis",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/runtime-diagnosis.js --json --surface help --project ${input:masterDocProject} --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Prompt Intent Router",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/prompt-intent-router.js --json --surface auto-pilot --prompt \"${input:promptIntentText}\" --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Workspace Kickoff Guard",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/enforce-workspace-git-sync.js --write --project ${input:masterDocProject} --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Full Self-Test",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/tests/run-all.js",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Sync Capabilities",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/sync-capabilities.js",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Shared Memory Sync",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/shared-memory-sync.js --json --project ${input:masterDocProject} --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Shared Memory Rebuild Index",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/shared-memory-sync.js --json --project ${input:masterDocProject} --provider openmemory-hybrid --rebuild-index --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Parallel Board Check",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/parallel-board.js --strict --project ${input:masterDocProject} --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Swarm Control Check",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/swarm-control.js --strict --project ${input:masterDocProject} --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Install Plan",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/install-plan.js --json --dry-run --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Workspace Root Sync",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/workspace-root-sync.js --json --project ${input:masterDocProject} --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Improvement Review",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/improvement-review.js --json --project ${input:masterDocProject} --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Self-Test Audit",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/runtime-diagnosis.js --json --audit --surface self-test --project ${input:masterDocProject} --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}
