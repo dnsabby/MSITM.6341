@@ -30,9 +30,9 @@
       "problemMatcher": []
     },
     {
-      "label": "Master.Prompt: Workspace Kickoff Guard",
+      "label": "Master.Prompt: Orchestration Preflight",
       "type": "shell",
-      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/enforce-workspace-git-sync.js --write --project ${input:masterDocProject} --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/orchestration-preflight.js --json --write --surface auto-pilot --project ${input:masterDocProject} --prompt \"${input:promptIntentText}\" --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
       "group": "test",
       "problemMatcher": []
     },
@@ -58,9 +58,23 @@
       "problemMatcher": []
     },
     {
+      "label": "Master.Prompt: Prompt Completion Memory Status",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/shared-memory-sync.js --json --project ${input:masterDocProject} --promotion-scope orchestration-alignment --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
       "label": "Master.Prompt: Shared Memory Rebuild Index",
       "type": "shell",
       "command": "node ../../Master.Prompt/.claude/scripts/maintenance/shared-memory-sync.js --json --project ${input:masterDocProject} --provider openmemory-hybrid --rebuild-index --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Master.Prompt: Orchestration Post-Acceptance",
+      "type": "shell",
+      "command": "node ../../Master.Prompt/.claude/scripts/maintenance/orchestration-post-acceptance.js --json --write --event push --project ${input:masterDocProject} --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc",
       "group": "test",
       "problemMatcher": []
     },

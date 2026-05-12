@@ -4,3 +4,4 @@ Read `AGENTS.md` in this repo for the local operator contract.
 Use `.windsurf/rules/rules.md` as the native Windsurf rule surface in this repo.
 Use `../../Master.Doc/MSITM.6341/claude.md` for app-specific details.
 Start with `/auto-pilot`.
+After every completed prompt or IDE command/workflow, run `node ../../Master.Prompt/.claude/scripts/maintenance/shared-memory-sync.js --json --promotion-scope orchestration-alignment --project dbu-msitm-6341 --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc` so all IDEs keep shared-memory cache status and promotion backlog aligned.

@@ -10,3 +10,4 @@ Canonical app setup is stored in Master.Doc.
 
 Treat `../../Master.Prompt` and `../../Master.Doc` as the centralized roots for this repo.
 Use /auto-pilot for routing and /self-test to validate setup.
+After every completed prompt or IDE command/workflow, run `node ../../Master.Prompt/.claude/scripts/maintenance/shared-memory-sync.js --json --promotion-scope orchestration-alignment --project dbu-msitm-6341 --master-prompt-root ../../Master.Prompt --master-doc-root ../../Master.Doc` so all IDEs keep shared-memory cache status and promotion backlog aligned.

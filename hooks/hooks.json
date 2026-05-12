@@ -18,31 +18,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ../../Master.Prompt/.claude/scripts/hooks/prompt-submit-sync.js",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/orchestration-preflight.js",
             "timeout": 300
           }
         ],
-        "description": "Prompt-submit sync guard — safe-updates the active repo and centralized roots before routing"
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node ../../Master.Prompt/.claude/scripts/hooks/command-kickoff-sync.js",
-            "timeout": 300
-          }
-        ],
-        "description": "Command kickoff git-update guard — enforces workspace repo update checks before slash-command/workflow kickoff"
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node ../../Master.Prompt/.claude/scripts/hooks/prompt-intent-router.js",
-            "timeout": 5
-          }
-        ],
-        "description": "Prompt intent router — classifies every prompt into the best-fit command/persona/skill/verifier/profile route using assisted auto mode"
+        "description": "Orchestration preflight — repo sync, routing, persona resolution, memory alignment, and weekly-log freshness before governed execution"
       }
     ],
     "PreToolUse": [
@@ -92,6 +72,17 @@
       }
     ],
     "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/orchestration-post-acceptance.js",
+            "timeout": 300
+          }
+        ],
+        "description": "Post-acceptance sync — records successful git pushes into Master.Doc via weekly logs and shared-memory promotion"
+      },
       {
         "matcher": "Edit|MultiEdit|Write",
         "hooks": [
@@ -169,9 +160,14 @@
             "type": "command",
             "command": "node ../../Master.Prompt/.claude/scripts/hooks/stop-checks.js",
             "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "node ../../Master.Prompt/.claude/scripts/hooks/prompt-completion-memory-status.js",
+            "timeout": 45
           }
         ],
-        "description": "Final verification — checks for console.log/debug statements in modified files"
+        "description": "Final verification and memory status — checks modified files, warms shared memory, and surfaces promotion backlog"
       }
     ],
     "SessionEnd": [
