@@ -1,9 +1,13 @@
 """
-Lesson 1 In-Class Exercises (No Answers)
-========================================
+Lesson 1 In-Class Exercises
+===========================
 
-This file is intentionally scaffold-only.
-Implement each TODO during class.
+Lesson 1 exercises covering:
+1) Variables
+2) Data Types
+3) Operators
+4) Control Flow
+5) Functions
 """
 
 # ========================
@@ -11,12 +15,31 @@ Implement each TODO during class.
 # ========================
 
 # Exercise 1:
-# TODO: Define variables for student name and age.
-# TODO: Print a sentence using f-string formatting.
+# Define variables for employee name and years of employment.
+# Print a sentence using f-string formatting.
+
+employee_name = "Eli"
+employment_age = 2
+is_employee = True
+
+print(
+    f"{employee_name} has been with the company for {employment_age} years, "
+    f"and employment status is {is_employee}."
+)
+
 
 # Exercise 2:
-# TODO: Convert two string numbers to integers.
-# TODO: Print their sum and division result.
+# Convert two string numbers to integers.
+# Print their sum and division result.
+
+first_number = "20"
+second_number = "5"
+
+first_number = int(first_number)
+second_number = int(second_number)
+
+print(f"Sum: {first_number + second_number}")
+print(f"Division: {first_number / second_number}")
 
 
 # ========================
@@ -24,8 +47,18 @@ Implement each TODO during class.
 # ========================
 
 # Exercise 3:
-# TODO: Create int, float, str, and bool variables.
-# TODO: Print each variable's data type.
+# Create int, float, str, and bool variables.
+# Print each variable's data type.
+
+employee_id = 1234
+employee_salary = 55000.50
+employee_department = "Information Technology"
+employee_active = True
+
+print(type(employee_id))
+print(type(employee_salary))
+print(type(employee_department))
+print(type(employee_active))
 
 
 # ========================
@@ -33,8 +66,17 @@ Implement each TODO during class.
 # ========================
 
 # Exercise 4:
-# TODO: Define two numbers.
-# TODO: Print +, -, *, /, and % results.
+# Define two numbers.
+# Print +, -, *, /, and % results.
+
+num_a = 20
+num_b = 6
+
+print(f"Addition: {num_a + num_b}")
+print(f"Subtraction: {num_a - num_b}")
+print(f"Multiplication: {num_a * num_b}")
+print(f"Division: {num_a / num_b}")
+print(f"Remainder: {num_a % num_b}")
 
 
 # ========================
@@ -42,17 +84,49 @@ Implement each TODO during class.
 # ========================
 
 # Exercise 5:
-# TODO: Write an if/elif/else block to classify a number as
+# Write an if/elif/else block to classify a number as
 # positive, negative, or zero.
 
+number_to_check = -5
+
+if number_to_check > 0:
+    print("The number is positive.")
+elif number_to_check < 0:
+    print("The number is negative.")
+else:
+    print("The number is zero.")
+
+
 # Exercise 6:
-# TODO: Determine whether a number is even or odd.
+# Determine whether a number is even or odd.
+
+number = 7
+
+if number % 2 == 0:
+    print(f"{number} is even.")
+else:
+    print(f"{number} is odd.")
+
 
 # Exercise 7:
-# TODO: Use a for-loop to print values 1 through 5.
+# Use a for-loop to print values 1 through 5.
+
+for number in range(1, 6):
+    print(number)
+
 
 # Exercise 8:
-# TODO: Compute factorial using a while-loop.
+# Compute factorial using a while-loop.
+
+factorial_number = 5
+factorial_result = 1
+current_number = factorial_number
+
+while current_number > 0:
+    factorial_result = factorial_result * current_number
+    current_number -= 1
+
+print(f"The factorial of {factorial_number} is {factorial_result}.")
 
 
 # ========================
@@ -71,8 +145,7 @@ def add_numbers(left, right):
     Returns:
         int | float: Sum result.
     """
-    # TODO: Implement addition logic.
-    pass
+    return left + right
 
 
 def greet_user(name="Guest"):
@@ -85,11 +158,12 @@ def greet_user(name="Guest"):
     Returns:
         str: Greeting text.
     """
-    # TODO: Return greeting string.
-    pass
+    return f"Hello, {name}!"
 
 
 if __name__ == "__main__":
-    # TODO: Call `add_numbers` with sample values.
-    # TODO: Call `greet_user` with and without an argument.
-    pass
+    print(add_numbers(10, 5))
+
+    print(greet_user("Eli"))
+
+    print(greet_user())
